@@ -9,7 +9,6 @@ print(f"input: {hex_data} ")
 
 valid = all(c in "123456789abcdefABCDEF" for c in hex_data)
 
-print(f"length: {length} ")
 
 if not valid:
     
@@ -22,8 +21,15 @@ elif length %2 !=0:
     print("Odd number of digits")
 
 else:
-    print("Valid Hex input")
+    data = bytes.fromhex(hex_data)
 
+    print(f"Length: {length}")
+    print(f"Bytes: {len(data)}")
+
+    result = " ".join(f"{d:02X}" for d in data)
+
+    print(f"Hex: {result}")
+    
 print("__________________________________________________________")
 
 
